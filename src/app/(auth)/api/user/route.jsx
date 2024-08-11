@@ -15,28 +15,27 @@ const userSchema = z
       .min(8, 'Password must have than 8 characters'),
   })
 
-export async function POST(req) {
+  export async function POST(req) {
     try {
         const body = await req.json();
-        const {email, username, password} = userSchema.parse(body);
+        const { email, username, password } = userSchema.parse(body);
 
-
-        //check if email already exists
+        // Check if email already exists
         const existingUserByEmail = await db.user.findUnique({
-            where: {email: email}
-
+            where: { email: email }
         });
-        if(existingUserByEmail){
-            return NextResponse.json({user: null, message: "User with this email already exists"}, {status: 409})
+
+        if (existingUserByEmail) {
+            return NextResponse.json({ user: null, message: "User with this email already exists" }, { status: 409 });
         }
 
-        //check if email already exists
+        // Check if username already exists
         const existingUserByUsername = await db.user.findUnique({
-            where: {username: username}
-
+            where: { username: username }
         });
-        if(existingUserByUsername){
-            return NextResponse.json({user: null, message: "User with this username already exists"}, {status: 409})
+
+        if (existingUserByUsername) {
+            return NextResponse.json({ user: null, message: "User with this username already exists" }, { status: 409 });
         }
 
         const hashedPassword = await hash(password, 10);
@@ -50,8 +49,9 @@ export async function POST(req) {
         });
         const { password: newUserPassword, ...rest } = newUser;
 
-        return NextResponse.json({user: rest, message: "User created succesfully"}, { status: 201});
+        return NextResponse.json({ user: rest, message: "User created successfully" }, { status: 201 });
     } catch (error) {
-        return NextResponse.json({message: "Something went wrong!"}, { status: 500});
+        console.error("Error in user creation:", error);
+        return NextResponse.json({ message: "Something went wrong!" }, { status: 500 });
     }
 }

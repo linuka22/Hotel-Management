@@ -1,10 +1,6 @@
 import * as React from 'react';
-import * as LabelPrimitive from '@radix-ui/react-label';
-import { Slot } from '@radix-ui/react-slot';
 import { Controller, FormProvider, useFormContext } from 'react-hook-form';
-
-import { cn } from "../../../../lib/utils";
-import { Label } from '../ui/label';
+import './Form.css'; // Import your CSS file
 
 const Form = FormProvider;
 
@@ -47,7 +43,7 @@ const FormItem = React.forwardRef(({ className, ...props }, ref) => {
 
   return (
     <FormItemContext.Provider value={{ id }}>
-      <div ref={ref} className={className} {...props} />
+      <div ref={ref} className={`form-item ${className}`} {...props} />
     </FormItemContext.Provider>
   );
 });
@@ -57,7 +53,12 @@ const FormLabel = React.forwardRef(({ className, ...props }, ref) => {
   const { formItemId } = useFormField();
 
   return (
-    <Label ref={ref} className={className} htmlFor={formItemId} {...props} />
+    <label
+      ref={ref}
+      className={`form-label ${className}`}
+      htmlFor={formItemId}
+      {...props}
+    />
   );
 });
 FormLabel.displayName = 'FormLabel';
@@ -66,7 +67,7 @@ const FormControl = React.forwardRef(({ ...props }, ref) => {
   const { error, formItemId, formDescriptionId, formMessageId } = useFormField();
 
   return (
-    <Slot
+    <div
       ref={ref}
       id={formItemId}
       aria-describedby={
@@ -88,7 +89,7 @@ const FormDescription = React.forwardRef(({ className, ...props }, ref) => {
     <p
       ref={ref}
       id={formDescriptionId}
-      className={cn('text-sm text-muted-foreground', className)}
+      className={`form-description ${className}`}
       {...props}
     />
   );
@@ -107,7 +108,7 @@ const FormMessage = React.forwardRef(({ className, children, ...props }, ref) =>
     <p
       ref={ref}
       id={formMessageId}
-      className={cn('text-sm font-medium text-destructive', className)}
+      className={`form-message ${className}`}
       {...props}
     >
       {body}

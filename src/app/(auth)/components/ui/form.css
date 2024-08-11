@@ -1,0 +1,24 @@
+.form-item {
+    margin-bottom: 1rem;
+  }
+  
+  .form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+  
+  .form-control {
+    width: 100%;
+  }
+  
+  .form-description {
+    font-size: 0.875rem; /* text-sm equivalent */
+    color: #6c757d; /* muted-foreground */
+  }
+  
+  .form-message {
+    font-size: 0.875rem; /* text-sm equivalent */
+    color: #dc3545; /* destructive color */
+  }
+  
