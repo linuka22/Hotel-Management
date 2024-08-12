@@ -1,19 +1,31 @@
-import Link from "next/link";
-import "./navbar.css"
+// Navbar.jsx
+"use client";
+import { useEffect, useState } from "react";
+import styles from "./navbar.module.css";
+import Links from "./links/Links";
 
 const Navbar = () => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) { // Change this value based on when you want the color to change
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <div className="navbar">
-        <div className="navbar-logo">Logo</div>
-        <div className="navbar-links">
-            <Link href="/">Home</Link>
-            <Link href="/gallery">Gallery</Link>
-            <Link href="/about">About Us</Link>
-            <Link href="/contact">Contact Us</Link>
-            <Link href="/reviews">Guest Reviews</Link>
-        </div>
+    <div className={`${styles.container} ${scrolled ? styles.scrolled : ''}`}>
+      <div className={styles.logo}>Logo</div>
+      <Links />
     </div>
-   )
-}
+  );
+};
 
 export default Navbar;

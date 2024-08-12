@@ -1,23 +1,35 @@
-import { Inter } from 'next/font/google'
-import './globals.css'
-import Navbar from '@/components/navbar/navbar'
-import Footer from '@/components/footer/Footer'
+'use client';
 
-const inter = Inter({ subsets: ['latin'] })
+import { useState, useEffect } from 'react';
+import { Inter } from 'next/font/google';
+import './globals.css';
+import Navbar from '@/components/navbar/Navbar';
+import Footer from '@/components/footer/Footer';
+import Loading from '@/components/loading/Loading';
 
-export const metadata = {
-  title: 'Next App',
-  description: 'Next.js starter app',
-}
+const inter = Inter({ subsets: ['latin'] });
 
 export default function RootLayout({ children }) {
+  const [loading, setLoading] = useState(true);
+  const [showContent, setShowContent] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+      setShowContent(true);
+    }, 1000); // Ensure loading is displayed for at least 1 second
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <html lang="en">
       <body className={inter.className}>
         <Navbar/>
-        {children}
+        {loading && <Loading />}
+        {showContent && children}
         <Footer/>
       </body>
     </html>
-  )
+  );
 }
