@@ -1,0 +1,37 @@
+.container{
+  background-color: rgb(192, 189, 189);
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  position: fixed; /* Fixed position to stay at the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+.container.scrolled {
+  background-color: #dfd7d7; /* Lighter background color when scrolled */
+}
+.logo{
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+.navbar-links a {
+  color:black;
+  margin: 0 15px;
+  transition: color 0.3s ease,cursor 0.3s ease;
+}
+
+.navbar-links a:hover {
+  color: red; /* Change font color to red on hover */
+  cursor: pointer; /* Gold color on hover */
+}

@@ -1,0 +1,69 @@
+.loaderContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full height of the viewport */
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999; /* Make sure it sits on top of other content */
+    flex-direction: column; /* Center the text below the plane */
+  }
+  
+  .plane {
+    width: 50px;
+    height: 50px;
+    position: relative;
+  }
+  
+  .plane::before,
+  .plane::after {
+    content: '';
+    position: absolute;
+    background-color: #3498db; /* Primary color for the plane */
+    border-radius: 50%;
+  }
+  
+  .plane::before {
+    width: 60px;
+    height: 6px;
+    top: 22px;
+    left: 0;
+    background-color: #3498db; /* Main body of the plane */
+  }
+  
+  .plane::after {
+    width: 10px;
+    height: 20px;
+    top: 10px;
+    left: 25px;
+    background-color: #3498db; /* Tail of the plane */
+  }
+  
+  .plane {
+    background: #3498db; /* Body color */
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    position: relative;
+    animation: fly 2s linear infinite;
+  }
+  
+  @keyframes fly {
+    0% {
+      transform: translateX(-100vw) rotate(-45deg);
+    }
+    50% {
+      transform: translateX(50vw) rotate(-45deg);
+    }
+    100% {
+      transform: translateX(100vw) rotate(-45deg);
+    }
+  }
+  
+  .loaderContainer p {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #333; /* Dark color for text */
+  }
+   

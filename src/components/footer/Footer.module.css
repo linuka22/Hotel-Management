@@ -1,0 +1,120 @@
+.footer {
+  background-color: #000;
+  color: #fff;
+  padding: 20px 0;
+  font-family: 'Arial', sans-serif;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.topSection {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #444;
+  flex-wrap: wrap;
+}
+
+.section {
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+.section:first-child {
+  text-align: left; /* Align first section text to the left */
+}
+
+.section:nth-child(2) {
+  text-align: center; /* Center the Quick Links section */
+}
+
+.section:nth-child(3) {
+  text-align: right; /* Align the Contact Info section to the right */
+}
+
+.title {
+  font-size: 18px;
+  color: #e63946;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #ccc;
+  margin-right: 20px; /* Added margin for spacing */
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.list li {
+  margin-bottom: 10px;
+}
+
+.list a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.list a:hover {
+  color: #e63946;
+}
+
+.cardIcons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px; /* Added margin to separate from text */
+}
+
+.cardImage {
+  width: 50px;
+  height: auto;
+}
+
+.bottomSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.copyright {
+  font-size: 14px;
+  color: #888;
+  align-items: center;
+}
+
+.bottomLinks {
+  display: flex;
+  align-items: center;
+}
+
+.bottomLinks a {
+  margin-left: 20px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.bottomLinks a:hover {
+  color: #e63946;
+}
+
+.bookNow {
+  background-color: #e63946;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-left: 60px;
+}

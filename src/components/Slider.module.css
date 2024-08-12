@@ -1,0 +1,160 @@
+/* General Slider Container */
+.slidersContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 40px; 
+  margin-top: 120px;
+  margin-bottom: 50px; /* Space between sliders */
+}
+
+/* Individual Slider Container */
+.sliderContainer {
+  display: flex;
+  align-items: flex-start; /* Align items to the top */
+  justify-content: space-between;
+  max-width: 1000px; /* Width of the container */
+  margin: auto;
+  padding: 20px; /* Padding around the container */
+  position: relative;
+  background-color: #f5f5f5; /* Background color */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Image Container */
+.imageContainer {
+  position: relative;
+  width: 350px; /* Set width */
+  height: 350px; /* Set height */
+  margin-right: 40px; /* Space between image and other content */
+}
+
+.image {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 10px; /* Rounded corners */
+  opacity: 0.8;
+  transition: opacity 0.5s ease;
+}
+
+.image:hover {
+  opacity: 1; /* Full opacity on hover */
+}
+
+/* Details Box - Replacing Description */
+.detailsBox1 {
+  flex: 1;
+  width: 500px; /* Width of the details box */
+  padding: 20px;
+  background-color: #ecb8b8; /* Background color */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  text-align: center;
+  font-size: 14px;
+  line-height: 3.2;
+  font-family: 'Roboto', Arial, sans-serif;
+  z-index: 1;
+  font-weight: bold; /* Ensure it appears in front of the image */
+}
+
+.detailsBox2 {
+  flex: 1;
+  width: 500px; /* Width of the details box */
+  padding: 20px;
+  background-color: #ebe7e7; /* Background color */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  text-align: center;
+  font-size: 14px;
+  line-height: 3.2;
+  font-family: 'Roboto', Arial, sans-serif;
+  z-index: 1;
+  font-weight: bold; /* Ensure it appears in front of the image */
+}
+
+.detailsBox3 {
+  flex: 1;
+  width: 500px; /* Width of the details box */
+  padding: 20px;
+  background-color: #ecb8b8; /* Background color */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  text-align: center;
+  font-size: 14px;
+  line-height: 3.2;
+  font-family: 'Roboto', Arial, sans-serif;
+  z-index: 1;
+  font-weight: bold; /* Ensure it appears in front of the image */
+}
+
+/* View More Text */
+.viewMore {
+  color: rgb(199, 30, 30);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* Popup Overlay */
+.popupOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Popup Content */
+.popupContent {
+  background-color: white;
+  padding: 40px; /* Increase padding for a larger content area */
+  border-radius: 10px; /* Slightly larger border radius */
+  text-align:center;
+  max-width: 800px; /* Increase maximum width */
+  width: 80%; /* Increase width relative to the viewport */
+  max-height: 80%; /* Limit the height to 80% of the viewport */
+  overflow-y: auto;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; /* Add scroll if content exceeds the height */
+}
+
+/* Close Button */
+.closeButton {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  align-items: center;
+}
+
+/* Dots Container */
+.dotsContainer {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+/* Dot Styles */
+.dot {
+  height: 8px;
+  width: 8px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.activeDot {
+  background-color: red;
+}

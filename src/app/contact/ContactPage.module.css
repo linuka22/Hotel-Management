@@ -1,0 +1,139 @@
+/* General container styling */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px;
+  width:100%;
+}
+
+/* Banner Section */
+.banner {
+  background-image: url('/contact.jpg'); /* Set your background image here */
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 300px; /* Adjust the height as needed */
+  padding: 0; /* Remove padding to ensure full width */
+  margin: 0; /* Remove margin to ensure full width */
+  text-align: center;
+  box-sizing: border-box; /* Ensures padding and border are included in the element’s total width and height */
+}
+
+.bannerText {
+  font-size: 36px;
+  margin-top: 130px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Red color for "KEEP IN TOUCH" */
+.redText {
+  color: #ff0000;
+}
+
+/* White color for "WITH US" */
+.whiteText {
+  color: #ffffff;
+}
+
+/* Subheader Section */
+.subHeaderContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+  background-color: #e1c4c4;
+  width:100%;
+  font-size: 14px;
+}
+
+.subHeader {
+  font-size: 18px;
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 50px;
+}
+
+.icons {
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  color: #000;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.icon:hover {
+  transform: scale(1.2); /* Scale up by 20% */
+  color: #ff0000; /* Change color on hover */
+}
+
+/* Optional: Add a slight shadow effect on hover */
+.icon:hover {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+/* Information Boxes */
+.infoBoxesContainer {
+  width: 100%;
+  max-width: 800px;
+  margin: 20px 0;
+}
+
+.row {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.infoBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #a49f9f;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 250px; /* Adjust this width based on your design */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Form Section */
+.form {
+  background-color: #ffe4e4;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 900px;
+  font-size: 16px;
+}
+
+.formGroup {
+  margin-bottom: 15px;
+}
+
+.input, .textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.button {
+  background-color: #d12424;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #cc0000;
+}
