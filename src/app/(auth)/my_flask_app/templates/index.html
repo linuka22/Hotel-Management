@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Chatbot</title>
+</head>
+<body>
+    <h1>Hotel Customer Service Chatbot</h1>
+    <div id="chatbox">
+        <div id="userInput">
+            <input id="textInput" type="text" name="msg" placeholder="Type your message here...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+        <div id="chatLog"></div>
+    </div>
+
+    <script type="text/javascript">
+        function sendMessage() {
+            var userInput = document.getElementById("textInput").value;
+            var chatLog = document.getElementById("chatLog");
+            chatLog.innerHTML += "<b>You:</b> " + userInput + "<br>";
+
+            fetch(`/get?msg=${userInput}`)
+                .then(response => response.text())
+                .then(data => {
+                    chatLog.innerHTML += "<b>Bot:</b> " + data + "<br>";
+                });
+            document.getElementById("textInput").value = "";
+        }
+    </script>
+</body>
+</html>
