@@ -3,6 +3,7 @@
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import styles from './home.module.css';
+import Image from 'next/image';
 
 
 
@@ -14,6 +15,7 @@ export default function Home() {
   const images2 = ['/image1.png'];
   const images3 = ['/image2.png'];
   const images4 = ['/image3.png'];
+
   useEffect(() => {
     const interval = setInterval(() => {
       setIsZooming(true);
@@ -44,7 +46,7 @@ export default function Home() {
         className={`${styles.heroSection} ${
           isZooming ? styles['zoom-enter-active'] : ''
         }`}
-        style={{ backgroundImage: `url(${images1[currentImageIndex]})` }}
+        style={{ backgroundImage: `url(${images1[currentImageIndex]})`,objectFit: 'cover' }}
       >
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>
@@ -65,7 +67,7 @@ export default function Home() {
       </div>
     </div>
 
-    <main className={styles.main}>
+    {/* <main className={styles.main}>
         <section className={styles.whatWeDo}>
           <h2>What We Do</h2>
           <p>
@@ -86,11 +88,44 @@ export default function Home() {
             </div>
           </div>
         </section>
-        </main>
+        </main> */}
+
+<div className={styles.weAreSupreme}>
+  <div className={styles.imageWrapper}>
+    <Image src="/image1.png" alt="Supreme Dining" width={500} height={300} />
+  </div>
+  <div className={styles.textWrapper}>
+    <h3>WE ARE SUPREME</h3>
+    <p>
+      Indulge in a culinary adventure with our masterfully crafted dishes, exquisite beverages, and an ambiance that will make every
+      meal a delightful experience. Our restaurant is where every occasion becomes special.
+    </p>
+  </div>
+</div>
+
+      {/* Explore Reviews Section */}
+      <div className={styles.reviewsSection}>
+      <h2>EXPLORE REVIEWS</h2>
+      <div className={styles.reviews}>
+      <div className={styles.review}>
+      <p>
+        "I had an amazing stay at this luxurious hotel. The service was exceptional, the rooms were stunning, and the food was
+        out-of-this-world. Can't wait to return!"
+      </p>
+      <h4>Joe Root</h4>
+      </div>
+      <div className={styles.review}>
+      <p>
+        "A truly five-star experience! The hotel exceeded all my expectations, from the comfortable rooms to the exquisite dining
+        experience."
+      </p>
+      <h4>Jos Buttler</h4>
+      </div>
+      </div>
+      </div>
+
+
       </div>   
-
-
-    
 
   );
 }

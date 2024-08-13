@@ -3,6 +3,9 @@ import Link from 'next/link';
 import styles from './Footer.module.css';
 
 const Footer = () => {
+  const images5 = ['/ae.png'];
+  const images6 = ['/visa.png'];
+  const images7 = ['/mc.png'];
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
@@ -47,9 +50,9 @@ const Footer = () => {
           <div className={styles.section}>
             <h3 className={styles.title}>WE ACCEPT</h3>
             <div className={styles.cardIcons}>
-              <img src="public/visa.png" alt="Visa" className={styles.cardImage} />
-              <img src="/images/mastercard.png" alt="MasterCard" className={styles.cardImage} />
-              <img src="/images/amex.png" alt="American Express" className={styles.cardImage} />
+              <img src="/visa.png" alt="Visa" className={styles.cardImage} />
+              <img src="/mc.png" alt="MasterCard" className={styles.cardImage} />
+              <img src="/ae.png" alt="American Express" className={styles.cardImage} />
             </div>
           </div>
 
