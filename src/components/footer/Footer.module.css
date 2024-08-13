@@ -1,0 +1,142 @@
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 20px 0;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .topSection {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #444;
+    flex-wrap: wrap;
+  }
+  
+  .section {
+    flex: 1;
+    margin-bottom: 20px;
+  }
+  
+  .section:first-child {
+    text-align: left; /* Align first section text to the left */
+  }
+  
+  .section:nth-child(2) {
+    text-align: center; /* Center the Quick Links section */
+  }
+  
+  .section:nth-child(3) {
+    text-align: right; /* Align the Contact Info section to the right */
+  }
+  
+  .title {
+    font-size: 18px;
+    color: #F60808;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+  }
+  
+  .text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #ccc;
+    margin-right: 20px; /* Added margin for spacing */
+  }
+  
+  .list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .list li {
+    margin-bottom: 10px;
+  }
+  
+  .list a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .list a:hover {
+    color: #F60808;
+  }
+  
+  .cardIcons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px; /* Added margin to separate from text */
+  }
+  
+  .cardImage {
+    width: 50px;
+    height: auto;
+  }
+  
+  .bottomSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: right;
+    padding-top: 20px;
+    justify-content: flex-end;
+  }
+  
+  .copyright {
+    font-size: 14px;
+    color: #888;
+    text-align: center;
+  }
+  
+  .bottomLinks {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
+  .bottomLinks a {
+    /*margin-left: 120px;*/
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+    margin-left: 20px; /* Maintain spacing between links */
+  }
+  
+  .bottomLinks a:hover {
+    color: #F60808;
+  }
+  
+  .bookNow {
+    background-color: #F60808;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-left: 120px;
+    font-size: 16px; /* Customize font size for "Book Now" */
+  }
+
+  .separator {
+    font-size: 20px; /* Customize size of the separator */
+    color: #fff; /* Color of the separator */
+    margin: 0 20px; /* Adds space around the separator */
+  }
+
+  .contactDetails {
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    line-height: 1.6;
+}
+
+.contactItem {
+    margin-bottom: 20px;
+}
+
