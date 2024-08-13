@@ -15,6 +15,7 @@ export default function Home() {
   const images2 = ['/image1.png'];
   const images3 = ['/image2.png'];
   const images4 = ['/image3.png'];
+  const images5 = ['/dishes.png'];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -67,7 +68,7 @@ export default function Home() {
       </div>
     </div>
 
-    {/* <main className={styles.main}>
+   <main className={styles.main}>
         <section className={styles.whatWeDo}>
           <h2>What We Do</h2>
           <p>
@@ -88,11 +89,11 @@ export default function Home() {
             </div>
           </div>
         </section>
-        </main> */}
+        </main> 
 
 <div className={styles.weAreSupreme}>
   <div className={styles.imageWrapper}>
-    <Image src="/image1.png" alt="Supreme Dining" width={500} height={300} />
+    <Image src="/dishes.png" alt="Supreme Dining" width={500} height={300} />
   </div>
   <div className={styles.textWrapper}>
     <h3>WE ARE SUPREME</h3>

@@ -122,8 +122,18 @@
 
 /* Styles for service images */
 .services img {
-  width: 150px; /* Width of the service image */
-  height: 150px; /* Height of the service image */
+  width: 300px; /* Width of the service image */
+  height: 300px; /* Height of the service image */
+  border-radius: 25px;
+}
+
+.whatWeDo h2{
+  color: red;
+  text-align: center;
+}
+
+.whatwedo p{
+  font-size: 6vw;
 }
 
 /* Style for individual service items */
@@ -147,7 +157,6 @@
 
 /* Main content container */
 .main {
-  width: 100%; /* Full width of the viewport */
   padding: 2rem; /* Padding inside the container */
   display: flex; /* Flexbox layout for content */
   flex-direction: column; /* Stack children vertically */
