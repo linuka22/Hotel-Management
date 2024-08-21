@@ -113,14 +113,14 @@ export default function Home() {
         "I had an amazing stay at this luxurious hotel. The service was exceptional, the rooms were stunning, and the food was
         out-of-this-world. Can't wait to return!"
       </p>
-      <h4>Joe Root</h4>
+      <h4>Saman Kumara</h4>
       </div>
       <div className={styles.review}>
       <p>
         "A truly five-star experience! The hotel exceeded all my expectations, from the comfortable rooms to the exquisite dining
         experience."
       </p>
-      <h4>Jos Buttler</h4>
+      <h4>Viraj Kolitha</h4>
       </div>
       </div>
       </div>

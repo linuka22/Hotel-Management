@@ -2,11 +2,8 @@
 .container {
   text-align: center;
   padding: 20px;
-}
-
-/* Emoji container to hold any image or emoji, currently empty */
-.emojiContainer {
-  margin-bottom: 20px;
+  max-width: 1200px; /* Increased for desktop */
+  margin: 0 auto; /* Center the container */
 }
 
 /* Flexbox container for date inputs to align them horizontally */
@@ -15,6 +12,9 @@
   justify-content: center;
   gap: 20px;
   margin-bottom: 20px;
+  background-color: #3c3d3d;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 /* Input container for general form sections with spacing */
@@ -37,20 +37,20 @@
   resize: vertical; /* Allows resizing of the textbox vertically */
 }
 
-/* Style for radio inputs */
-.radio {
-  margin-right: 10px;
+.checkInOutText {
+  background-color: red; /* Red background color */
+  color: white; /* White text color for better contrast */
+  padding: 10px; /* Add some padding around the text */
+  border-radius: 5px; /* Optional: rounded corners */
+  font-size: 16px; /* Adjust font size as needed */
+  font-weight: bold; /* Optional: make the text bold */
+  transition: background-color 0.3s ease; /* Smooth transition for the background color change */
 }
 
-/* Button to check availability with red background */
-.checkAvailabilityButton {
-  background-color: red;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 16px;
-  margin-bottom: 20px; /* Space between button and other elements */
+.checkInOutText:hover {
+  background-color: rgb(226, 7, 7); /* Darker red background color on hover */
+  cursor: pointer; /* Change cursor to a pointer to indicate it's clickable */
+  transform: scale(1.05); /* Increase the size of the text by 10% on hover */
 }
 
 /* Hover effect for the check availability button */
@@ -80,7 +80,7 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
-  font-weight: bold;
+
   font-size: 14px;
   line-height: 20px; /* Adjusted to match the height of radio buttons */
   text-align: left;
@@ -128,7 +128,7 @@
 
 /* Hover effect for the submit button */
 .submitButton:hover {
-  background-color: #007ba7;
+  background-color: #ff0000c9;
 }
 
 /* General table styling for feedback */
@@ -141,7 +141,6 @@
 
 /* Header styling for the feedback table */
 .feedbackTable th {
-  font-weight: bold;
   font-size: 14px;
   text-align: center;
   padding: 10px;
@@ -174,6 +173,11 @@
   text-align: center;
 }
 
+.radioLabel{
+  cursor: pointer; /* Change cursor to a pointer to indicate it's clickable */
+}
+  
+
 /* Border between table rows */
 .feedbackTable tr {
   border-bottom: 1px solid #ccc;
@@ -201,9 +205,11 @@
 .ratingOptions {
   display: flex;
   gap: 5px;
+  padding-top: 20px;
+  padding-bottom: 10px;
 }
 
-/* Individual rating option styling for a square button */
+/* Individual rating option styling for inside of square button */
 .ratingOption {
   display: flex;
   align-items: center;
@@ -211,11 +217,16 @@
   width: 40px; /* Square size for the rating button */
   height: 40px;
   background-color: #f5f5f5;
-  border: 2px solid #ccc;
+  border: 2px solid #ffbb00;
   border-radius: 5px;
   cursor: pointer;
   position: relative;
   text-align: center;
+}
+
+.ratingOPtion:hover{
+  cursor: pointer; /* Change cursor to a pointer to indicate it's clickable */
+  transform: scale(1.05); /* Increase the size of the text by 10% on hover */
 }
 
 /* Hide the default radio button appearance */
@@ -225,7 +236,7 @@
 
 /* Style for checked rating options */
 .ratingOption input[type="radio"]:checked + .radioText {
-  background-color: #00ABE4; /* Background color when selected */
+  background-color: red; /* Background color when selected */
   color: white;
 }
 
@@ -251,7 +262,7 @@
 
 /* Label for the comment section, bold and margin below */
 .commentLabel {
-  font-weight: bold;
+  text-align: left;
   margin-bottom: 10px;
 }
 
@@ -262,4 +273,123 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   resize: vertical; /* Allows resizing of the textbox vertically */
+}
+
+/* Update font size for check-in and check-out labels */
+.dateContainer label {
+  font-size: 16px; /* Adjust as needed */
+}
+
+/* Update font size and padding between questions and answers */
+.inputContainer {
+  margin-bottom: 20px; /* Add space between questions */
+}
+
+.questionContainer label {
+  font-size: 18px; /* Adjust as needed */
+  margin-bottom: 10px; /* Space between question and answers */
+  text-align: left;
+}
+
+.radioContainer,
+.checkboxContainer {
+  margin-top: 10px; /* Space between answers */
+}
+
+.radioContainer {
+  display: flex;
+  gap: 20px; /* Adjust the gap between radio options */
+}
+
+.radioContainer label {
+  display: flex;
+  align-items: center; /* Align radio buttons and text vertically */
+  gap: 10px; /* Adjust the gap between radio button and text */
+}
+
+
+/* Update font and styles for tables */
+.feedbackTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px; /* Adjust as needed */
+}
+
+.feedbackTable th,
+.feedbackTable td {
+  padding: 10px; /* Space within table cells */
+  border: 1px solid #ddd; /* Add border to table cells */
+  font-weight: lighter;
+}
+
+.feedbackTable th {
+  background-color: #f4f4f4; /* Background color for table headers */
+}
+
+.feedbackTable td {
+  background-color: #fff; /* Background color for table cells */
+}
+
+/* Style for rating options */
+.ratingContainer {
+  display: flex;
+  align-items: center;
+}
+
+.ratingOptions {
+  display: flex;
+  margin: 0 10px;
+}
+
+.ratingOption {
+  margin-right: 10px;
+}
+
+.ratingLabel {
+  font-size: 16px; /* Adjust as needed */
+}
+
+/* Style for submit button */
+.submitButton {
+  background-color: red; /* Blue background color */
+  color: white; /* White text color */
+  padding: 10px 20px; /* Adjust padding as needed */
+  border: none;
+  border-radius: 5px; /* Rounded corners */
+  font-size: 16px; /* Adjust font size as needed */
+  cursor: pointer;
+}
+
+.submitButton:hover {
+  background-color: rgba(255, 0, 0, 0.863); /* Darker blue on hover */
+}
+
+/* General input and text area styling */
+.textInput {
+  width: 100%; /* Full width */
+  padding: 10px; /* Padding inside the input field */
+  border-radius: 5px; /* Rounded corners */
+  border: 1px solid #ddd; /* Border around input fields */
+}
+
+/* Adjust overall scaling and responsiveness */
+.container {
+  max-width: 1200px; /* Increased for desktop */
+  margin: 0 auto; /* Center container */
+  padding: 20px; /* Add padding around the container */
+}
+
+/* Banner image container */
+.bannerContainer {
+  width: 100%; /* Full width of the container */
+  margin-bottom: 20px; /* Space below the banner */
+  padding-top: 00px; /* Add top padding */
+  padding-bottom: 00px; /* Add bottom padding */
+}
+
+/* Banner image styling */
+.bannerImage {
+  width: 100%; /* Ensure the image spans the full width of the container */
+  height: auto; /* Maintain the aspect ratio */
+  display: block; /* Remove any inline spacing */
 }

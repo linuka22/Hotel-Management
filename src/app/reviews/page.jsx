@@ -1,5 +1,6 @@
-'use client';
+"use client";
 import React, { useState } from 'react';
+import Image from 'next/image'; // Import the Image component from Next.js
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import styles from './reviews.module.css';
@@ -33,7 +34,6 @@ const ReviewPage = () => {
   const [recommend, setrecommend] = useState('');
   const [comments, setComments] = useState('');
 
-
   const handleFeedbackChange = (e) => {
     setFeedback({
       ...feedback,
@@ -56,28 +56,36 @@ const ReviewPage = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.emojiContainer}>
-        {/* You can add an image or emoji here if needed */}
-      </div>
-      <div className={styles.dateContainer}>
-        <div>
-          <label htmlFor="checkInDate">Check in: </label>
+      <banner className={styles.bannerContainer}>
+          <Image 
+            src="/feedback.jpg" // Ensure the correct path to the image
+            alt="Feedback Emoticons"
+            className={styles.bannerImage} // Apply the new CSS class
+            width={1300} // Optional: Set width (can be handled by CSS)
+            height={300} // Optional: Set height (can be handled by CSS)
+          />
+      </banner>
+
+      
+      <date className={styles.dateContainer}>
+        <cin className={styles.checkInOutText}>
+          <label htmlFor="checkInDate">Check in : </label>
           <DatePicker
             selected={checkInDate}
             onChange={date => setCheckInDate(date)}
             id="checkInDate"
           />
-        </div>
-        <div>
-          <label htmlFor="checkOutDate">Check out: </label>
+        </cin>
+
+        <cout className={styles.checkInOutText}>
+          <label htmlFor="checkOutDate">Check out : </label>
           <DatePicker
             selected={checkOutDate}
             onChange={date => setCheckOutDate(date)}
             id="checkOutDate"
           />
-          
-        </div>
-      </div>
+        </cout>
+      </date>
       
       
       <form onSubmit={handleSubmit}>
