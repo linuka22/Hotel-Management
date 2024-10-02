@@ -14,10 +14,13 @@ datasource db {
 }
 
 model User {
-  id      Int      @id @default(autoincrement())
-  email   String   @unique
-  username String @unique
-  password String
-  createdAt DateTime @default(now())
-  updateAt DateTime @updatedAt
+  id          Int      @id @default(autoincrement())
+  email       String   @unique
+  password    String
+  phoneNumber String   @default("Unknown")  // Provide default value
+  nicNumber   String   @default("Unknown")  // Provide default value
+  address     String   @default("Unknown")  // Provide default value
+  createdAt   DateTime @default(now())
+  updateAt    DateTime @updatedAt
 }
+

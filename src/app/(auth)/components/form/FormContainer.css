@@ -16,3 +16,8 @@
     width: 100%; /* Full width of the box */
   }
   
+  .error-message {
+    color: red;
+    font-weight: bold;
+  }
+  
