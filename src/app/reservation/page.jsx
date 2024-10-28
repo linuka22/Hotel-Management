@@ -1,3 +1,4 @@
+// src/app/reservation/page.jsx
 "use client";
 
 import React, { useState } from 'react';
@@ -16,10 +17,10 @@ import room4 from './images/room4.jpg';
 import room5 from './images/room5.jpg';
 import banner from './images/banner.jpg';
 
-
 const Reservations = () => {
   const [checkInDate, setCheckInDate] = useState(null);
   const [checkOutDate, setCheckOutDate] = useState(null);
+  const [filteredAvailability, setFilteredAvailability] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const rooms = [
@@ -30,10 +31,28 @@ const Reservations = () => {
     { img: room5, title: 'Family Suite', features: ['02 BEDS - KING SIZE', 'LARGE TV & WIFI'] },
   ];
 
-  const handleCheckAvailability = () => {
-    alert(`Checking availability for dates:\nCheck-in: ${checkInDate}\nCheck-out: ${checkOutDate}`);
+  // Function to check availability by fetching data from the API
+  const checkAvailability = async () => {
+    if (!checkInDate || !checkOutDate) {
+      alert('Please select both check-in and check-out dates.');
+      return;
+    }
+
+    const checkInISO = checkInDate.toISOString();
+    const checkOutISO = checkOutDate.toISOString();
+
+    try {
+      const response = await fetch(
+        `/api/checkAvailability?checkIn=${checkInISO}&checkOut=${checkOutISO}`
+      );
+      const data = await response.json();
+      setFilteredAvailability(data);
+    } catch (error) {
+      console.error('Error fetching room availability:', error);
+    }
   };
 
+  // Define handlePrev and handleNext functions for room carousel
   const handleNext = () => {
     if (currentIndex < rooms.length - 2) {
       setCurrentIndex(currentIndex + 2);
@@ -49,46 +68,59 @@ const Reservations = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.banner}>
-      <Image src={banner} alt="Room Reservations" layout="fill" objectFit="cover" />
+        <Image src={banner} alt="Room Reservations" layout="fill" objectFit="cover" />
         <h1 className={styles.bannerText}>
-          <span className={styles.roomText}>ROOM</span> 
+          <span className={styles.roomText}>ROOM</span>
           <span className={styles.reservationText}> RESERVATION</span>
         </h1>
       </div>
 
       <div className={styles.dateSection}>
         <div className={styles.datePickerWrapper}>
-          <DatePicker 
-            selected={checkInDate} 
-            onChange={(date) => setCheckInDate(date)} 
+          <DatePicker
+            selected={checkInDate}
+            onChange={(date) => setCheckInDate(date)}
             placeholderText="Check in"
             className={styles.dateInput}
           />
         </div>
-        
+
         <div className={styles.datePickerWrapper}>
-          <DatePicker 
-            selected={checkOutDate} 
-            onChange={(date) => setCheckOutDate(date)} 
+          <DatePicker
+            selected={checkOutDate}
+            onChange={(date) => setCheckOutDate(date)}
             placeholderText="Check out"
             className={styles.dateInput}
           />
         </div>
-        
-        <button className={styles.checkAvailabilityButton} onClick={handleCheckAvailability}>
+
+        <button className={styles.checkAvailabilityButton} onClick={checkAvailability}>
           Check Availability
         </button>
       </div>
 
+      <div className={styles.availabilityResults}>
+        {filteredAvailability.length > 0 ? (
+          filteredAvailability.map((room, index) => (
+            <div key={index}>
+              <p>{room.type}: {room.availableRooms} rooms available</p>
+            </div>
+          ))
+        ) : (
+          <p>Select dates to check availability</p>
+        )}
+      </div>
+
+      {/* Room Cards Carousel */}
       <div className={roomStyles.carousel}>
         <button className={roomStyles.prevButton} onClick={handlePrev} disabled={currentIndex === 0}>
           &lt;
         </button>
-        
+
         <div className={roomStyles.roomsSection}>
           {rooms.slice(currentIndex, currentIndex + 2).map((room, index) => (
             <div key={index} className={roomStyles.roomCard}>
-              <Image src={room.img} alt={room.title} />
+              <Image src={room.img} alt={room.title} width={400} height={300} />
               <div className={roomStyles.roomDetails}>
                 <h2 className={roomStyles.roomTitle}>{room.title}</h2>
                 <div className={roomStyles.roomFeatures}>
@@ -101,7 +133,7 @@ const Reservations = () => {
             </div>
           ))}
         </div>
-        
+
         <button className={roomStyles.nextButton} onClick={handleNext} disabled={currentIndex >= rooms.length - 2}>
           &gt;
         </button>

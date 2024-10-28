@@ -31,20 +31,16 @@ const Footer = () => {
           
           <div className={styles.section}>
             <h3 className={styles.title}>CONTACT INFO</h3>
-            <p className={styles.text}>
-              TEL: <ul className={styles.list}>
-                      <li>+94 70 5 642 889</li>
-                      <li>+94 77 3 490 065</li>
-                      <li>+94 77 3 211 123</li>
-                   </ul>
-            </p>
-            <p className={styles.text}>
-              EMAIL: info@ardilla.lk
-            </p>
-            <p className={styles.text}>
-              ADDRESS: No.456,<br />Colombo-Kandy Road,<br />Gampaha.
-            </p>
-          </div>         
+            <p className={styles.text}>TEL:</p>
+            <ul className={styles.list}>
+              <li>+94 70 5 642 889</li>
+              <li>+94 77 3 490 065</li>
+              <li>+94 77 3 211 123</li>
+            </ul>
+            <p className={styles.text}>EMAIL: info@ardilla.lk</p>
+            <p className={styles.text}>ADDRESS: No.456,<br />Colombo-Kandy Road,<br />Gampaha.</p>
+          </div>
+         
         </div>
 
           <div className={styles.section}>

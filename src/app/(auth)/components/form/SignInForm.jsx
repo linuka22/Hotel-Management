@@ -1,5 +1,5 @@
-"use client"
-import React, { useState } from 'react';
+"use client";
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '../ui/form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -8,7 +8,10 @@ import { Button } from '../ui/button';
 import Link from 'next/link';
 import { z } from 'zod';
 import { useRouter } from 'next/navigation';
+import { signIn } from 'next-auth/react';
 import './FormContainer.css';
+import { useToast } from "@/hooks/use-toast"
+
 
 const FormSchema = z.object({
   email: z.string().min(1, 'Email is required').email('Invalid email'),
@@ -17,7 +20,7 @@ const FormSchema = z.object({
 
 const SignInForm = () => {
   const router = useRouter();
-  const [error, setError] = useState(null);
+  const { toast } = useToast()
   const form = useForm({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -27,27 +30,20 @@ const SignInForm = () => {
   });
 
   const onSubmit = async (values) => {
-    try {
-      const response = await fetch('/api/auth/callback/credentials', {
-        method: 'POST',
-        headers: {
-          'Content-type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: values.email,
-          password: values.password,
-        }),
-      });
-
-      const result = await response.json();
-
-      if (response.ok) {
-        router.push('/reservation');
-      } else {
-        setError('Invalid email or password');
-      }
-    } catch (error) {
-      setError('Something went wrong!');
+    const signInData = await signIn('credentials', {
+      email: values.email,
+      password: values.password,
+      redirect: false,
+    });
+    
+    if (signInData?.error) {
+      toast({
+        title: "Error",
+        description: "Oops! Something not right",
+      })
+    } else {
+      router.push('/admin');
+      router.refresh(); // Redirect to the admin page
     }
   };
 
@@ -56,11 +52,6 @@ const SignInForm = () => {
       <div className="form-box">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className='w-full'>
-            {error && (
-              <div className="error-message text-red-500">
-                {error}
-              </div>
-            )}
             <div className='space-y-2'>
               <FormField
                 control={form.control}
@@ -113,3 +104,4 @@ const SignInForm = () => {
 };
 
 export default SignInForm;
+

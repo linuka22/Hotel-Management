@@ -13,6 +13,7 @@ import './Signupform.css'; // Import the CSS file
 
 const FormSchema = z
   .object({
+    name: z.string().min(1, 'Name is required'),
     email: z.string().min(1, 'Email is required').email('Invalid email'),
     password: z
       .string()
@@ -34,6 +35,7 @@ const SignUpForm = () => {
   const form = useForm({
     resolver: zodResolver(FormSchema),
     defaultValues: {
+      name: '',
       email: '',
       password: '',
       confirmPassword: '',
@@ -51,6 +53,7 @@ const SignUpForm = () => {
           'Content-type': 'application/json',
         },
         body: JSON.stringify({
+          name: values.name,  // Include the name field here
           email: values.email,
           password: values.password,
           phoneNumber: values.phoneNumber,
@@ -58,18 +61,19 @@ const SignUpForm = () => {
           address: values.address,
         }),
       });
-
+  
       const result = await response.json();
-
+  
       if (response.ok) {
         router.push('/sign-in');
       } else {
-        setError(result.message); // Set the error message to display
+        setError(result.message);
       }
     } catch (error) {
       setError('Something went wrong!');
     }
   };
+  
 
   return (
     <div className="form-container">
@@ -82,6 +86,18 @@ const SignUpForm = () => {
               </div>
             )}
             <div className="space-y-2">
+              <FormField
+                name="name"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Name</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Enter your name" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
               <FormField
                 name="email"
                 render={({ field }) => (

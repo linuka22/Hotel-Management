@@ -5,6 +5,7 @@ import * as z from 'zod';
 
 const userSchema = z
   .object({
+    name: z.string().min(1, 'Name is required'),  // Add name field
     email: z.string().min(1, 'Email is required').email('Invalid email'),
     password: z
       .string()
@@ -18,7 +19,7 @@ const userSchema = z
 export async function POST(req) {
   try {
     const body = await req.json();
-    const { email, password, phoneNumber, nicNumber, address } = userSchema.parse(body);
+    const { name, email, password, phoneNumber, nicNumber, address } = userSchema.parse(body);
 
     // Check if email already exists
     const existingUserByEmail = await db.user.findUnique({
@@ -33,6 +34,7 @@ export async function POST(req) {
 
     const newUser = await db.user.create({
       data: {
+        name,  // Include name
         email,
         password: hashedPassword,
         phoneNumber,
