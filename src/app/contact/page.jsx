@@ -15,7 +15,7 @@ const ContactPage = () => {
       
       {/* Subheader Section */}
       <div className={styles.subHeaderContainer}>
-        <p className={styles.subHeader}>LET'S MAKE SOMETHING AWESOME TOGETHER</p>
+        <p className={styles.subHeader}>MAKE SOMETHING AWESOME TOGETHER</p>
         <div className={styles.icons}>
           <MapPinIcon className={styles.icon} />
           <EnvelopeIcon className={styles.icon} />
