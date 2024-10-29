@@ -1,6 +1,6 @@
 import React from "react";
 import * as LabelPrimitive from "@radix-ui/react-label";
-import './Label.css'; // Import your CSS file
+import './label.css'; // Import your CSS file
 
 const Label = React.forwardRef((props, ref) => {
   const { className, ...rest } = props;

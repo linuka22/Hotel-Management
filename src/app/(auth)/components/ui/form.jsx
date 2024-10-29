@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Controller, FormProvider, useFormContext } from 'react-hook-form';
-import './Form.css'; // Import your CSS file
+import './form.css'; // Import your CSS file
 
 const Form = FormProvider;
 
