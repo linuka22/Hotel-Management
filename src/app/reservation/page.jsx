@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import Facilities from './facilities';
+import Facilities from './Facilities';
 import styles from './reservation.module.css';
 import roomStyles from './roomCards.module.css';
 
