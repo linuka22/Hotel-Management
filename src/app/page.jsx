@@ -110,15 +110,15 @@ export default function Home() {
       <div className={styles.reviews}>
       <div className={styles.review}>
       <p>
-        "I had an amazing stay at this luxurious hotel. The service was exceptional, the rooms were stunning, and the food was
-        out-of-this-world. Can't wait to return!"
+        &quot;I had an amazing stay at this luxurious hotel. The service was exceptional, the rooms were stunning, and the food was
+        out-of-this-world. Can&apos;t wait to return!&quot;
       </p>
       <h4>KL Perera</h4>
       </div>
       <div className={styles.review}>
       <p>
-        "A truly five-star experience! The hotel exceeded all my expectations, from the comfortable rooms to the exquisite dining
-        experience."
+        &quot;A truly five-star experience! The hotel exceeded all my expectations, from the comfortable rooms to the exquisite dining
+        experience.&quot;
       </p>
       <h4>SK Bineth</h4>
       </div>
