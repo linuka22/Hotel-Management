@@ -246,7 +246,14 @@ const Slider = () => {
                   width={400}
                   height={300}
                 />
-                <p>Our hotel restaurant is a culinary haven designed to provide an exceptional dining experience. Open from 9 AM to 11 PM, the restaurant offers a diverse menu featuring signature dishes crafted with the finest ingredients. Guests can enjoy special discounts, particularly curated for our esteemed visitors, and indulge in handcrafted desserts that showcase our pastry chef's creativity. For those seeking an exclusive dining experience, we offer private dining options, perfect for special occasions or intimate gatherings. Whether you're here for breakfast, lunch, or dinner, our restaurant promises a delightful and memorable culinary journey.</p>
+                <p>
+                  Our hotel restaurant is a culinary haven designed to provide an exceptional dining experience. Open from 9 AM to 11 PM, the
+                  restaurant offers a diverse menu featuring signature dishes crafted with the finest ingredients. Guests can enjoy special
+                  discounts, particularly curated for our esteemed visitors, and indulge in handcrafted desserts that showcase our pastry chef&apos;s
+                  creativity. For those seeking an exclusive dining experience, we offer private dining options, perfect for special occasions or
+                  intimate gatherings. Whether you&apos;re here for breakfast, lunch, or dinner, our restaurant promises a delightful and memorable
+                  culinary journey.
+                </p>
               </>
             )}
             {popupContent === "drink" && (
