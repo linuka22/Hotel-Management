@@ -9,7 +9,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from '../ui/form';
-import './Signupform.css'; // Import the CSS file
+import './SignUpForm.css'; // Import the CSS file
 
 const FormSchema = z
   .object({
