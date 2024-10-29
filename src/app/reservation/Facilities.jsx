@@ -3,7 +3,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBed, faTv, faParking, faWifi, faShower, faCogs, faSwimmingPool, faBanSmoking } from '@fortawesome/free-solid-svg-icons';
-import styles from './facilities.module.css';
+import styles from './Facilities.module.css';
 
 const Facilities = () => {
   const facilities = [
