@@ -227,7 +227,7 @@ const Slider = () => {
                 />
                 <p>
                   The Executive Room is tailored for the discerning traveler who
-                  values both style and practicality. It combines modern
+                  values both style and practicality. It combine modern
                   elegance with functional amenities such as a spacious work
                   desk, high-speed internet, and comfortable seating. The
                   Executive Room is designed to cater to business needs while
