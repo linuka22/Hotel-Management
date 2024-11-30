@@ -1,4 +1,3 @@
-// src/app/reservation/page.jsx
 "use client";
 
 import React, { useState } from 'react';
@@ -82,6 +81,7 @@ const Reservations = () => {
             onChange={(date) => setCheckInDate(date)}
             placeholderText="Check in"
             className={styles.dateInput}
+            minDate={new Date()} // Disable past dates
           />
         </div>
 
@@ -91,6 +91,7 @@ const Reservations = () => {
             onChange={(date) => setCheckOutDate(date)}
             placeholderText="Check out"
             className={styles.dateInput}
+            minDate={checkInDate || new Date()} // Ensure check-out is after check-in
           />
         </div>
 
