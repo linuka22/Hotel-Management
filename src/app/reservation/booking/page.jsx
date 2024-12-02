@@ -10,11 +10,11 @@ const BookingPage = () => {
   const [roomPrice, setRoomPrice] = useState(0); // Price per room
   const searchParams = useSearchParams();
   const router = useRouter();
-  const roomType = searchParams.get("roomType"); // Fallback for roomType
+
+  const roomType = searchParams?.get("roomType"); // Retrieve roomType from URL
+  const roomId = searchParams?.get("roomId"); // Retrieve roomId from URL
 
   useEffect(() => {
-    console.log("Fetching user and room price...");
-
     const fetchUser = async () => {
       try {
         const response = await fetch("/api/session");
@@ -28,11 +28,11 @@ const BookingPage = () => {
     };
 
     const fetchRoomPrice = async () => {
+      if (!roomType) return; // Only fetch if roomType is available
       try {
         const response = await fetch(`/api/roomPrice?roomType=${roomType}`);
         if (response.ok) {
           const data = await response.json();
-          console.log("Room price fetched:", data);
           setRoomPrice(data.price || 0);
         } else {
           console.error("Failed to fetch room price for:", roomType);
@@ -46,20 +46,16 @@ const BookingPage = () => {
     fetchRoomPrice();
   }, [roomType]);
 
-  const roomId = searchParams.get("roomId");
-
   const handleGoToPayment = () => {
-    const checkInDate = searchParams.get("checkInDate"); // Retrieve check-in date
-    const checkOutDate = searchParams.get("checkOutDate"); // Retrieve check-out date
+    const checkInDate = searchParams?.get("checkInDate"); // Retrieve check-in date
+    const checkOutDate = searchParams?.get("checkOutDate"); // Retrieve check-out date
     const totalAmount = roomPrice * rooms; // Calculate total amount
-  
+
     // Redirect to the payment page with all required details
     router.push(
       `/reservation/payment?roomType=${roomType}&roomId=${roomId}&rooms=${rooms}&totalAmount=${totalAmount}&checkInDate=${checkInDate}&checkOutDate=${checkOutDate}`
     );
   };
-  
-  
 
   return (
     <div className="booking-container">
@@ -111,4 +107,3 @@ const BookingPage = () => {
 };
 
 export default BookingPage;
-
