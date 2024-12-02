@@ -40,12 +40,20 @@ model Booking {
 }
 
 model Feedback {
-  id              Int       @id @default(autoincrement())
-  name            String
-  country         String
-  experienceRate  Int
-  feedback        String
-  createdAt       DateTime  @default(now())
+  id             Int      @id @default(autoincrement())
+  name           String
+  country        String
+  experienceRate Int
+  feedback       String
+  createdAt      DateTime @default(now())
 }
 
-// Keep other models unchanged.
+
+model ContactMessage {
+  id        Int      @id @default(autoincrement())
+  name      String
+  phone     String
+  email     String
+  message   String
+  createdAt DateTime @default(now())
+}
