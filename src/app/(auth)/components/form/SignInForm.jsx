@@ -42,7 +42,7 @@ const SignInForm = () => {
         description: "Oops! Something not right",
       })
     } else {
-      router.push('/admin');
+      router.push('/myAccount');
       router.refresh(); // Redirect to the admin page
     }
   };

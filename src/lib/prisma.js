@@ -1,5 +1,11 @@
 import { PrismaClient } from '@prisma/client';
 
-const prisma = new PrismaClient();
+// Create a single Prisma client instance to avoid multiple connections
+const prisma = global.prisma || new PrismaClient();
 
-export default prisma;
+if (process.env.NODE_ENV !== 'production') {
+  global.prisma = prisma;
+}
+
+export { prisma };
+

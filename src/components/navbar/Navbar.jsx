@@ -41,7 +41,7 @@ const Navbar = () => {
 
   return (
     <div className={`${styles.container} ${scrolled ? styles.scrolled : ""}`}>
-      <div className={styles.logo}>Logo</div>
+      <div className={styles.logo}>Ardilla</div>
       <div className={styles.links}>
         {links.map((link) => (
           <Link
@@ -58,12 +58,12 @@ const Navbar = () => {
           <>
             {isAdmin && (
               <Link
-                href="/admin"
+                href="/myAccount"
                 className={`${styles.link} ${
-                  pathName === "/admin" && styles.active
+                  pathName === "/myAccount" && styles.active
                 }`}
               >
-                Admin
+                My Account
               </Link>
             )}
             <button className={styles.logout} onClick={() => signOut()}>

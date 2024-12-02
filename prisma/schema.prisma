@@ -14,31 +14,37 @@ datasource db {
 }
 
 model User {
-  id          Int      @id @default(autoincrement())
-  name        String   @default("Unknown")  // Adding the name field with a default value
-  email       String   @unique
+  id          Int       @id @default(autoincrement())
+  name        String    @default("Unknown")  // Adding the name field with a default value
+  email       String    @unique
   password    String
-  phoneNumber String   @default("Unknown")
-  nicNumber   String   @default("Unknown")
-  address     String   @default("Unknown")
-  createdAt   DateTime @default(now())
-  updateAt    DateTime @updatedAt
+  phoneNumber String    @default("Unknown")
+  nicNumber   String    @default("Unknown")
+  address     String    @default("Unknown")
+  createdAt   DateTime  @default(now())
+  updateAt    DateTime  @updatedAt
+  bookings    Booking[] // Relation to Booking
 }
 
 model RoomType {
   id         Int       @id @default(autoincrement())
   name       String    // Room types like Deluxe Suite, Superior Room, etc.
   totalRooms Int       // Total available rooms for each type per day
-  bookings   Booking[] // Renaming Bookings to bookings for consistency
+  price      Int       // Price per room for this type
+  bookings   Booking[] // Relation to Booking
 }
 
 model Booking {
   id           Int       @id @default(autoincrement())
   roomTypeId   Int
+  userId       Int       // Foreign key for User
+  numberOfRooms Int      // Number of rooms booked
   checkInDate  DateTime
-  checkOutDate DateTime   // Adding checkOutDate to handle range filtering
-  roomType     RoomType   @relation(fields: [roomTypeId], references: [id]) // Renaming RoomType to roomType for consistency
+  checkOutDate DateTime
+  roomType     RoomType  @relation(fields: [roomTypeId], references: [id]) // Relation to RoomType
+  user         User      @relation(fields: [userId], references: [id])    // Relation to User
 }
+
 
 
 

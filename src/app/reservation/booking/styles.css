@@ -1,0 +1,137 @@
+/* Booking Page Styles */
+.booking-container {
+  max-width: 800px;
+  margin: 120px auto;
+  padding: 50px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.booking-container h2 {
+  text-align: center;
+  color: #333;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.booking-form label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #555;
+}
+
+.booking-form input,
+.booking-form select {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.booking-form input:focus,
+.booking-form select:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.booking-form .submit-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.booking-form .submit-btn:hover {
+  background-color: #0056b3;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #fff;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 40px;
+}
+
+.user-details p {
+  margin: 1px;
+  font-size: 16px;
+  color: #333;
+}
+
+.user-details p strong {
+  color: #555;
+}
+
+.total-amount {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f1f8ff;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #100cd6;
+}
+
+.total-amount p {
+  margin: 0;
+}
+
+/* Room Selection Modern Design */
+.room-selection-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 200px;
+  margin: 10px auto;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.room-selection-container button {
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.room-selection-container button:hover {
+  background-color: #0056b3;
+}
+
+.room-selection-container span {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  min-width: 40px;
+}
+

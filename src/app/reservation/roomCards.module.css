@@ -16,7 +16,7 @@
 }
 
 .roomCard {
-  flex: 0 0 500px;
+  flex: 0 0 33.33%; /* Show 3 cards at a time */
   box-sizing: border-box;
   padding: 10px;
   background-color: #fff;
@@ -24,7 +24,7 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border-radius: 10px;
   overflow: hidden;
-  position: relative; /* Needed for absolute positioning of the button */
+  position: relative;
 }
 
 .roomCard:hover {
@@ -36,7 +36,7 @@
   width: 100%;
   height: 300px;
   display: block;
-  object-fit: cover; /* Ensure image fills the card and maintains aspect ratio */
+  object-fit: cover;
 }
 
 .roomDetails {
@@ -86,11 +86,11 @@
 }
 
 .prevButton {
-  left: 100px; /* Adjusted for better spacing */
+  left: 10px;
 }
 
 .nextButton {
-  right: 100px; /* Adjusted for better spacing */
+  right: 10px;
 }
 
 .prevButton:hover,
@@ -103,3 +103,19 @@
   background-color: #ccc;
   cursor: not-allowed;
 }
+
+.availableRooms {
+  font-size: 1.5rem;
+  color: #5b26d4; /* Green color for available rooms */
+  font-family: 'Arial', sans-serif; /* Change to a different font */
+  margin-top: 10px;
+  font-weight: bold; /* Make the text bold */
+  text-align: left;
+}
+
+.availableRooms.noRooms {
+  color: #ea071d; /* Red color for no rooms available */
+  font-family: 'Georgia', serif; /* Change font to Georgia for no rooms available */
+  font-style: italic; /* Italicize the text for no rooms available */
+}
+
