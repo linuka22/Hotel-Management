@@ -1,9 +1,3 @@
-// This is your Prisma schema file
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -15,37 +9,43 @@ datasource db {
 
 model User {
   id          Int       @id @default(autoincrement())
-  name        String    @default("Unknown")  // Adding the name field with a default value
   email       String    @unique
   password    String
-  phoneNumber String    @default("Unknown")
-  nicNumber   String    @default("Unknown")
-  address     String    @default("Unknown")
   createdAt   DateTime  @default(now())
   updateAt    DateTime  @updatedAt
-  bookings    Booking[] // Relation to Booking
+  address     String    @default("Unknown")
+  nicNumber   String    @default("Unknown")
+  phoneNumber String    @default("Unknown")
+  name        String    @default("Unknown")
+  bookings    Booking[]
 }
 
 model RoomType {
   id         Int       @id @default(autoincrement())
-  name       String    // Room types like Deluxe Suite, Superior Room, etc.
-  totalRooms Int       // Total available rooms for each type per day
-  price      Int       // Price per room for this type
-  bookings   Booking[] // Relation to Booking
+  name       String
+  totalRooms Int
+  price      Int
+  bookings   Booking[]
 }
 
 model Booking {
-  id           Int       @id @default(autoincrement())
-  roomTypeId   Int
-  userId       Int       // Foreign key for User
-  numberOfRooms Int      // Number of rooms booked
-  checkInDate  DateTime
-  checkOutDate DateTime
-  roomType     RoomType  @relation(fields: [roomTypeId], references: [id]) // Relation to RoomType
-  user         User      @relation(fields: [userId], references: [id])    // Relation to User
+  id            Int       @id @default(autoincrement())
+  checkInDate   DateTime? @db.Date
+  roomTypeId    Int?
+  checkOutDate  DateTime? @db.Date
+  numberOfRooms Int
+  userId        Int
+  roomType      RoomType? @relation(fields: [roomTypeId], references: [id], onDelete: Restrict)
+  user          User      @relation(fields: [userId], references: [id])
 }
 
+model Feedback {
+  id              Int       @id @default(autoincrement())
+  name            String
+  country         String
+  experienceRate  Int
+  feedback        String
+  createdAt       DateTime  @default(now())
+}
 
-
-
-
+// Keep other models unchanged.
