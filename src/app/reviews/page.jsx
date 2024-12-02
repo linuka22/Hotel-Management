@@ -246,25 +246,62 @@ const countryOptions = [
   { value: "ZW", label: "Zimbabwe" }
 ];
 
-
 const FeedbackPage = () => {
   const [guestName, setGuestName] = useState("");
   const [selectedCountry, setSelectedCountry] = useState("");
   const [rating, setRating] = useState(0);
   const [feedback, setFeedback] = useState("");
+  const [message, setMessage] = useState("");
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const handleCountryChange = (selectedOption) => {
     setSelectedCountry(selectedOption?.value || "");
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert(`Feedback Submitted:\nName: ${guestName}\nCountry: ${selectedCountry}\nRating: ${rating}\nFeedback: ${feedback}`);
-    // Clear the form after submission
-    setGuestName("");
-    setSelectedCountry("");
-    setRating(0);
-    setFeedback("");
+    
+    // Basic validation
+    if (!guestName || !selectedCountry || !rating || !feedback) {
+      setMessage("All fields are required.");
+      setIsSuccess(false);
+      return;
+    }
+
+    const feedbackData = {
+      name: guestName,
+      country: selectedCountry,
+      experienceRate: rating,
+      feedback: feedback,
+    };
+
+    try {
+      const response = await fetch("/api/feedback", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(feedbackData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setMessage("Feedback submitted successfully!");
+        setIsSuccess(true);
+        // Clear form after submission
+        setGuestName("");
+        setSelectedCountry("");
+        setRating(0);
+        setFeedback("");
+      } else {
+        setMessage(`Error: ${data.error || "Something went wrong"}`);
+        setIsSuccess(false);
+      }
+    } catch (error) {
+      setMessage(`Error: ${error.message}`);
+      setIsSuccess(false);
+    }
   };
 
   return (
@@ -333,10 +370,15 @@ const FeedbackPage = () => {
         </div>
 
         {/* Submit Button */}
-        <button type="submit" className={styles.submitButton}>
-          Submit Feedback
-        </button>
+        <button type="submit" className={styles.submitButton}>Submit Feedback</button>
       </form>
+
+      {/* Feedback Message */}
+      {message && (
+        <p className={isSuccess ? styles.successMessage : styles.errorMessage}>
+          {message}
+        </p>
+      )}
     </div>
   );
 };
