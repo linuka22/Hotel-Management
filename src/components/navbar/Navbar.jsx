@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import Image from "next/image"; // Import the Image component
 import styles from "./navbar.module.css";
 import { signOut } from "next-auth/react";
 import { useSession } from "next-auth/react";
@@ -41,7 +42,16 @@ const Navbar = () => {
 
   return (
     <div className={`${styles.container} ${scrolled ? styles.scrolled : ""}`}>
-      <div className={styles.logo}>Ardilla</div>
+      <div className={styles.logo}>
+        <Link href="/">
+          <Image
+            src="/logoimage.png" // Update the path
+            alt="Logo"
+            width={250} // Adjust as needed
+            height={200} // Adjust as needed
+          />
+        </Link>
+      </div>
       <div className={styles.links}>
         {links.map((link) => (
           <Link
@@ -78,7 +88,10 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu Button */}
-      <button className={styles.menuButton} onClick={() => setOpen((prev) => !prev)}>
+      <button
+        className={styles.menuButton}
+        onClick={() => setOpen((prev) => !prev)}
+      >
         <FontAwesomeIcon icon={faBars} />
       </button>
 
