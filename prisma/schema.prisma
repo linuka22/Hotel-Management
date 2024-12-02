@@ -1,0 +1,51 @@
+// This is your Prisma schema file
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          Int       @id @default(autoincrement())
+  name        String    @default("Unknown")  // Adding the name field with a default value
+  email       String    @unique
+  password    String
+  phoneNumber String    @default("Unknown")
+  nicNumber   String    @default("Unknown")
+  address     String    @default("Unknown")
+  createdAt   DateTime  @default(now())
+  updateAt    DateTime  @updatedAt
+  bookings    Booking[] // Relation to Booking
+}
+
+model RoomType {
+  id         Int       @id @default(autoincrement())
+  name       String    // Room types like Deluxe Suite, Superior Room, etc.
+  totalRooms Int       // Total available rooms for each type per day
+  price      Int       // Price per room for this type
+  bookings   Booking[] // Relation to Booking
+}
+
+model Booking {
+  id           Int       @id @default(autoincrement())
+  roomTypeId   Int
+  userId       Int       // Foreign key for User
+  numberOfRooms Int      // Number of rooms booked
+  checkInDate  DateTime
+  checkOutDate DateTime
+  roomType     RoomType  @relation(fields: [roomTypeId], references: [id]) // Relation to RoomType
+  user         User      @relation(fields: [userId], references: [id])    // Relation to User
+}
+
+
+
+
+

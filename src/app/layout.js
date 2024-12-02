@@ -1,23 +1,29 @@
-import { Inter } from 'next/font/google'
-import './globals.css'
-import Navbar from '@/components/navbar/navbar'
-import Footer from '@/components/footer/Footer'
+'use client'
 
-const inter = Inter({ subsets: ['latin'] })
+import { Inter } from 'next/font/google';
+import './globals.css';
+import Navbar from '../components/navbar/Navbar';
+import Footer from '../components/footer/Footer';
+import { SessionProvider } from 'next-auth/react';
+import Provider from '@/components/Provider';
 
-export const metadata = {
-  title: 'Next App',
-  description: 'Next.js starter app',
-}
+
+const inter = Inter({ subsets: ['latin'] });
+
+
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <Provider>
       <body className={inter.className}>
-        <Navbar/>
-        {children}
-        <Footer/>
+          <main>
+            <Navbar />
+            {children}
+            <Footer />
+          </main>
       </body>
+      </Provider>
     </html>
-  )
+  );
 }

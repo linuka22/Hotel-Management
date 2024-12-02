@@ -1,0 +1,95 @@
+/* Container styling */
+.container {
+  max-width: 600px; /* Set the maximum width of the container to 600px */
+  margin: 120px auto; /* Center the container with 50px margin at the top and bottom */
+  padding: 20px; /* Add 20px padding inside the container */
+  border: 1px solid #ddd; /* Set a light gray border around the container */
+  border-radius: 8px; /* Round the corners with a radius of 8px */
+  background-color: #f9f9f9; /* Set a light gray background color */
+}
+
+/* Header styling */
+.header {
+  text-align: center; /* Center-align the header text */
+  margin-bottom: 20px; /* Add 20px margin below the header */
+  font-size: 1.5rem; /* Set the font size of the header to 1.5rem */
+}
+
+/* Section styling */
+.section {
+  margin-bottom: 20px; /* Add 20px margin below each section */
+}
+
+/* Label styling */
+.label {
+  display: block; /* Make the label a block element */
+  font-weight: bold; /* Set the label font weight to bold */
+  margin-bottom: 5px; /* Add a 5px margin below the label */
+}
+
+/* Input field styling */
+.input {
+  width: 96%; /* Make the input field take the full width of its container */
+  padding: 10px; /* Add 10px padding inside the input field */
+  margin-bottom: 10px; /* Add 10px margin below the input field */
+  border: 1px solid #ccc; /* Set a light gray border around the input field */
+  border-radius: 4px; /* Round the corners of the input field */
+}
+
+/* Dropdown styling */
+.dropdown {
+  margin-bottom: 10px; /* Add 10px margin below the dropdown */
+}
+
+/* Textarea styling */
+.textarea {
+  width: 96%; /* Make the textarea take the full width of its container */
+  height: 100px; /* Set the height of the textarea to 100px */
+  padding: 10px; /* Add 10px padding inside the textarea */
+  border: 1px solid #ccc; /* Set a light gray border around the textarea */
+  border-radius: 4px; /* Round the corners of the textarea */
+}
+
+/* Textarea focus styling (when the user clicks into the textarea) */
+.textarea:focus {
+  border-color: #0070f3; /* Change the border color to blue when focused */
+  outline: none; /* Remove the default focus outline */
+}
+
+/* Star rating container styling */
+.stars {
+  display: flex; /* Arrange the stars in a row */
+  gap: 5px; /* Add 5px gap between each star */
+  margin-top: 10px; /* Add 10px margin at the top */
+  cursor: pointer; /* Change the cursor to a pointer when hovering over the stars */
+}
+
+/* Empty star icon styling */
+.emptyStar {
+  font-size: 1.5rem; /* Set the font size of the empty stars */
+  color: #ccc; /* Set the color of empty stars to light gray */
+}
+
+/* Filled star icon styling */
+.filledStar {
+  font-size: 1.5rem; /* Set the font size of the filled stars */
+  color: #ffc107; /* Set the color of filled stars to yellow */
+}
+
+/* Submit button styling */
+.submitButton {
+  display: block; /* Make the submit button a block element */
+  width: 100%; /* Make the submit button take the full width of its container */
+  padding: 10px; /* Add 10px padding inside the button */
+  font-size: 1rem; /* Set the font size of the button */
+  color: white; /* Set the text color of the button to white */
+  background-color: #0070f3; /* Set the background color of the button to blue */
+  border: none; /* Remove the border from the button */
+  border-radius: 4px; /* Round the corners of the button */
+  cursor: pointer; /* Change the cursor to a pointer when hovering over the button */
+}
+
+/* Submit button hover styling */
+.submitButton:hover {
+  background-color: #005bb5; /* Change the background color to a darker blue when hovered */
+}

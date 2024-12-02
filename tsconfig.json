@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "paths": {
+        "@/*": ["./src/*"]
+    },
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "noEmit": true,
+    "incremental": true,
+    "module": "esnext",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": [
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    "**/*.ts",
+    "**/*.tsx"
+, "src/app/(auth)/components/form/SignInForm.jsx", "src/app/(auth)/components/form/SignUpForm.jsx", "src/app/(auth)/components/ui/button.jsx", "src/app/(auth)/components/ui/form.jsx", "src/app/(auth)/components/ui/input.jsx", "src/app/(auth)/components/ui/label.jsx", "src/app/(auth)/sign-in/page.jsx", "src/app/(auth)/sign-up/page.jsx", "src/lib/utils.jsx", "src/components/Provider.jsx"  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

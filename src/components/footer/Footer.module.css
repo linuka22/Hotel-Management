@@ -1,0 +1,196 @@
+.footer {
+  background-color: #000;
+  color: #fff;
+  padding: 20px 0;
+  font-family: 'Arial', sans-serif;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.topSection {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #444;
+  flex-wrap: wrap;
+}
+
+.section {
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+.section:first-child {
+  text-align: left; /* Align first section text to the left */
+}
+
+.section:nth-child(2) {
+  text-align: center; /* Center the Quick Links section */
+}
+
+.section:nth-child(3) {
+  text-align: right; /* Align the Contact Info section to the right */
+}
+
+.title {
+  font-size: 18px;
+  color: #F60808;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #ccc;
+  margin-right: 20px; /* Added margin for spacing */
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.list li {
+  margin-bottom: 10px;
+}
+
+.list a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.list a:hover {
+  color: #F60808;
+}
+
+.cardIcons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px; /* Added margin to separate from text */
+}
+
+.cardImage {
+  width: 50px;
+  height: auto;
+}
+
+.bottomSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: right;
+  padding-top: 20px;
+  justify-content: flex-end;
+}
+
+.copyright {
+  font-size: 14px;
+  color: #888;
+  text-align: center;
+}
+
+.bottomLinks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.bottomLinks a {
+  /*margin-left: 120px;*/
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+  margin-left: 20px; /* Maintain spacing between links */
+}
+
+.bottomLinks a:hover {
+  color: #F60808;
+}
+
+.bookNow {
+  background-color: #F60808;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-left: 120px;
+  font-size: 16px; /* Customize font size for "Book Now" */
+}
+
+.separator {
+  font-size: 20px; /* Customize size of the separator */
+  color: #fff; /* Color of the separator */
+  margin: 0 20px; /* Adds space around the separator */
+}
+
+.contactDetails {
+  font-family: 'Arial', sans-serif;
+  color: #fff;
+  line-height: 1.6;
+}
+
+.contactItem {
+  margin-bottom: 20px;
+}
+
+/* Styling for Card Images */
+.cardImage {
+width: 60px; /* Fixed width for images */
+height: 40px; /* Fixed height for images */
+object-fit: contain; /* Keep aspect ratio intact */
+border-radius: 10px; /* Rounded corners for the images */
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for transform and shadow */
+}
+
+/* 3D Hover Effect */
+.cardImage:hover {
+transform: translateY(-8px) scale(1.1); /* Slight lift and scale effect */
+box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Stronger shadow to emphasize depth */
+opacity: 0.9; /* Slight opacity reduction for a more realistic hover effect */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+.cardImage {
+  width: 50px; /* Slightly smaller images for smaller screens */
+  height: 35px; /* Adjust height proportionally */
+}
+}
+
+@media (max-width: 480px) {
+.cardImage {
+  width: 40px; /* Even smaller images for very small screens */
+  height: 30px; /* Adjust height for better fit */
+}
+}
+/* Card Icons Container */
+.cardIcons {
+display: flex;
+justify-content: center; /* Centers the icons horizontally */
+gap: 30px; /* Larger gap between icons for clarity */
+flex-wrap: wrap; /* Wrap icons if necessary on smaller screens */
+margin-top: 20px; /* Space above the icons */
+}
+
+/* Individual Card Image */
+.cardImage {
+width: 70px; /* Set a fixed width for the icons */
+height: 45px; /* Fixed height for consistency */
+transition: transform 0.3s ease, filter 0.3s ease; /* Smooth transition for hover effects */
+cursor: pointer; /* Pointer cursor for interactivity */
+border-radius: 10px; /* Rounded corners for the images */
+}
+
+/* Hover Effects for Icons */
+.cardImage:hover {
+transform: scale(1.1); /* Zoom-in effect */
+filter: brightness(1.2); /* Slight brightening on hover */
+}

@@ -1,0 +1,37 @@
+/* Default input styles */
+.input {
+    display: flex;
+    height: 2.5rem; /* h-10 equivalent */
+    width: 100%;
+    border-radius: 0.375rem; /* rounded-md equivalent */
+    border: 1px solid #d1d5db; /* border-input color */
+    background-color: #ffffff; /* bg-background color */
+    padding: 0.5rem 0.75rem; /* px-3 py-2 equivalent */
+    font-size: 0.875rem; /* text-sm equivalent */
+    color: #333333; /* Default text color */
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  
+  .input::placeholder {
+    color: #6b7280; /* placeholder:text-muted-foreground color */
+  }
+  
+  .input:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px #3b82f6; /* focus-visible:ring-ring color */
+    border-color: #3b82f6; /* focus-visible:ring-offset color */
+  }
+  
+  .input:disabled {
+    cursor: not-allowed;
+    opacity: 0.5; /* disabled:opacity color */
+  }
+  
+  .input::-webkit-file-upload-button {
+    border: 0;
+    background: transparent;
+    font-size: 0.875rem; /* file:text-sm equivalent */
+    font-weight: 500; /* file:font-medium equivalent */
+  }
+  

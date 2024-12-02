@@ -1,0 +1,108 @@
+/* Navbar container */
+.container {
+  background-color: rgb(223, 218, 218);
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+.container.scrolled {
+  background-color: #dfd7d7; /* Lighter background color when scrolled */
+}
+
+/* Logo styling */
+.logo {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+/* Links container */
+.links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+/* Link styling */
+.link {
+  color: black;
+  transition: color 0.3s ease, cursor 0.3s ease;
+}
+.link:hover {
+  color: red; /* Change font color to red on hover */
+  cursor: pointer;
+}
+.active {
+  color: red; /* Active link color */
+}
+
+/* Logout button styling */
+.logout {
+  padding: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Mobile menu button styling */
+.menuButton {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  z-index: 1001;
+  position: absolute;
+  right: 20px;
+}
+
+/* Mobile Links container */
+.mobileLinks {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .links {
+    display: none;
+  }
+
+  .menuButton {
+    display: block;
+  }
+
+  .mobileLinks {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    height: 100vh;
+    background-color: rgb(192, 189, 189);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    z-index: 1000;
+  }
+}
+
+.signInButton {
+  padding: 10px 20px;
+  background-color: #0070f3;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.signInButton:hover {
+  background-color: #005bb5;
+}
+

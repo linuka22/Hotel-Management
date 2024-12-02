@@ -1,0 +1,49 @@
+.form-container {
+    width: 100%;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .btn-submit {
+    width: 100%;
+    margin-top: 1.5rem;
+    background-color: #1a202c;
+    color: white;
+    padding: 0.75rem;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .separator {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1.5rem 0;
+    text-align: center;
+  }
+  
+  .separator::before,
+  .separator::after {
+    content: "";
+    flex-grow: 1;
+    height: 1px;
+    background-color: #cbd5e0;
+    margin: 0 1rem;
+  }
+  
+  .form-footer {
+    text-align: center;
+    color: #4a5568;
+  }
+  
+  .link-signup {
+    color: #3182ce;
+    text-decoration: underline;
+  }
+  
+  .link-signup:hover {
+    color: #2b6cb0;
+  }
+  

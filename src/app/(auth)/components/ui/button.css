@@ -1,0 +1,87 @@
+/* Default button styles */
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-size: 0.875rem; /* text-sm equivalent */
+    font-weight: 500; /* font-medium equivalent */
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    outline: none;
+  }
+  
+  /* Variants */
+  .default {
+    background-color: #007bff; /* primary color */
+    color: #ffffff; /* primary foreground color */
+  }
+  
+  .default:hover {
+    background-color: #0056b3; /* primary hover color */
+  }
+  
+  .destructive {
+    background-color: #dc3545; /* destructive color */
+    color: #ffffff; /* destructive foreground color */
+  }
+  
+  .destructive:hover {
+    background-color: #c82333; /* destructive hover color */
+  }
+  
+  .outline {
+    border: 1px solid #dee2e6; /* border color */
+    background-color: #ffffff; /* background color */
+  }
+  
+  .outline:hover {
+    background-color: #f8f9fa; /* accent background color */
+  }
+  
+  .secondary {
+    background-color: #6c757d; /* secondary color */
+    color: #ffffff; /* secondary foreground color */
+  }
+  
+  .secondary:hover {
+    background-color: #5a6268; /* secondary hover color */
+  }
+  
+  .ghost {
+    background-color: transparent; /* no background color */
+  }
+  
+  .ghost:hover {
+    background-color: #f8f9fa; /* accent background color */
+  }
+  
+  .link {
+    background-color: transparent; /* no background color */
+    text-decoration: underline;
+  }
+  
+  .link:hover {
+    color: #0056b3; /* primary color */
+  }
+  
+  /* Sizes */
+  .default {
+    height: 2.5rem; /* h-10 equivalent */
+    padding: 0 1rem; /* px-4 equivalent */
+  }
+  
+  .sm {
+    height: 2.25rem; /* h-9 equivalent */
+    padding: 0 0.75rem; /* px-3 equivalent */
+  }
+  
+  .lg {
+    height: 2.75rem; /* h-11 equivalent */
+    padding: 0 2rem; /* px-8 equivalent */
+  }
+  
+  .icon {
+    height: 2.5rem; /* h-10 equivalent */
+    width: 2.5rem; /* w-10 equivalent */
+  }
+  

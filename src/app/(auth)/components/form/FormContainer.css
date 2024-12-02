@@ -1,0 +1,23 @@
+/* Centering container for forms */
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full viewport height */
+    background-color: #f3f4f6; /* Light background color */
+  }
+  
+  .form-box {
+    background-color: #ffffff; /* White background for the form box */
+    border-radius: 0.375rem; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow */
+    padding: 2rem; /* Padding around the form */
+    max-width: 400px; /* Maximum width of the form box */
+    width: 100%; /* Full width of the box */
+  }
+  
+  .error-message {
+    color: red;
+    font-weight: bold;
+  }
+  
