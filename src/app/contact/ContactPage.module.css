@@ -137,3 +137,30 @@
 .button:hover {
   background-color: #cc0000;
 }
+
+/* Success message styling */
+.status {
+  color: green;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #e6ffe6;
+  border-radius: 5px;
+  border: 1px solid green;
+  display: inline-block;
+}
+
+/* Error message styling */
+.error {
+  color: red;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #ffe6e6;
+  border-radius: 5px;
+  border: 1px solid red;
+  display: inline-block;
+}
+
