@@ -8,11 +8,19 @@ const BookingPage = () => {
   const [user, setUser] = useState(null); // Holds logged-in user details
   const [rooms, setRooms] = useState(1); // Number of rooms selected by user
   const [roomPrice, setRoomPrice] = useState(0); // Price per room
-  const searchParams = useSearchParams();
+  const [searchParams, setSearchParams] = useState(null); // Store search params
   const router = useRouter();
 
-  const roomType = searchParams?.get("roomType"); // Retrieve roomType from URL
-  const roomId = searchParams?.get("roomId"); // Retrieve roomId from URL
+  // Fetch search params only on the client side
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      setSearchParams(params);
+    }
+  }, []);
+
+  const roomType = searchParams?.get("roomType");
+  const roomId = searchParams?.get("roomId");
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -47,9 +55,11 @@ const BookingPage = () => {
   }, [roomType]);
 
   const handleGoToPayment = () => {
-    const checkInDate = searchParams?.get("checkInDate"); // Retrieve check-in date
-    const checkOutDate = searchParams?.get("checkOutDate"); // Retrieve check-out date
-    const totalAmount = roomPrice * rooms; // Calculate total amount
+    if (!searchParams) return;
+
+    const checkInDate = searchParams.get("checkInDate");
+    const checkOutDate = searchParams.get("checkOutDate");
+    const totalAmount = roomPrice * rooms;
 
     // Redirect to the payment page with all required details
     router.push(
@@ -64,10 +74,18 @@ const BookingPage = () => {
         <>
           {/* Display user details */}
           <div className="user-details">
-            <p><strong>Name:</strong> {user.name}</p>
-            <p><strong>Address:</strong> {user.address}</p>
-            <p><strong>Phone:</strong> {user.phone}</p>
-            <p><strong>Email:</strong> {user.email}</p>
+            <p>
+              <strong>Name:</strong> {user.name}
+            </p>
+            <p>
+              <strong>Address:</strong> {user.address}
+            </p>
+            <p>
+              <strong>Phone:</strong> {user.phone}
+            </p>
+            <p>
+              <strong>Email:</strong> {user.email}
+            </p>
           </div>
 
           {/* Booking form */}
@@ -87,7 +105,8 @@ const BookingPage = () => {
             </div>
             <div className="total-amount">
               <p>
-                <strong>Total Amount:</strong> Rs. {(roomPrice * rooms).toLocaleString()}
+                <strong>Total Amount:</strong> Rs.{" "}
+                {(roomPrice * rooms).toLocaleString()}
               </p>
             </div>
             <button
