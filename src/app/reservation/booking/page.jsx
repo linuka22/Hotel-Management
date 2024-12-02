@@ -9,6 +9,7 @@ const BookingPage = () => {
   const [rooms, setRooms] = useState(1); // Number of rooms selected by user
   const [roomPrice, setRoomPrice] = useState(0); // Price per room
   const [searchParams, setSearchParams] = useState(null); // Store search params
+  const [totalAmount, setTotalAmount] = useState(0); // Total amount calculation
   const router = useRouter();
 
   // Fetch search params only on the client side
@@ -21,6 +22,8 @@ const BookingPage = () => {
 
   const roomType = searchParams?.get("roomType");
   const roomId = searchParams?.get("roomId");
+  const checkInDate = searchParams?.get("checkInDate");
+  const checkOutDate = searchParams?.get("checkOutDate");
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -54,12 +57,25 @@ const BookingPage = () => {
     fetchRoomPrice();
   }, [roomType]);
 
+  // Calculate number of nights
+  const calculateNights = (checkInDate, checkOutDate) => {
+    const checkIn = new Date(checkInDate);
+    const checkOut = new Date(checkOutDate);
+    const timeDifference = checkOut - checkIn;
+    return timeDifference > 0 ? timeDifference / (1000 * 3600 * 24) : 0;
+  };
+
+  // Update total amount when rooms or dates change
+  useEffect(() => {
+    if (checkInDate && checkOutDate) {
+      const nights = calculateNights(checkInDate, checkOutDate);
+      const amount = roomPrice * rooms * nights;
+      setTotalAmount(amount);
+    }
+  }, [roomPrice, rooms, checkInDate, checkOutDate]);
+
   const handleGoToPayment = () => {
     if (!searchParams) return;
-
-    const checkInDate = searchParams.get("checkInDate");
-    const checkOutDate = searchParams.get("checkOutDate");
-    const totalAmount = roomPrice * rooms;
 
     // Redirect to the payment page with all required details
     router.push(
@@ -106,7 +122,7 @@ const BookingPage = () => {
             <div className="total-amount">
               <p>
                 <strong>Total Amount:</strong> Rs.{" "}
-                {(roomPrice * rooms).toLocaleString()}
+                {totalAmount.toLocaleString()}
               </p>
             </div>
             <button
