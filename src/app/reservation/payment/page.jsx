@@ -1,17 +1,17 @@
-// src/app/reservation/payment/page.jsx
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import "./styles.css";
 
-const PaymentPage = () => {
+const PaymentPageContent = () => {
   const [cardName, setCardName] = useState("");
   const [cardNumber, setCardNumber] = useState("");
   const [expiryDate, setExpiryDate] = useState("");
   const [cvv, setCvv] = useState("");
   const [postalCode, setPostalCode] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
+
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -39,28 +39,28 @@ const PaymentPage = () => {
       alert("Expiry date must be in MM/YY format.");
       return;
     }
-  
+
     try {
-      // Fetch the user session (including email)
       const sessionResponse = await fetch("/api/session");
       if (!sessionResponse.ok) {
         throw new Error("Unable to fetch user session. Please log in again.");
       }
       const sessionData = await sessionResponse.json();
       const userId = sessionData.user.id;
-      const userEmail = sessionData.user.email; // Fetch user's email
-  
-      console.log("User ID from session:", userId);
-      console.log("User email from session:", userEmail);
-  
-      // Ensure required search parameters are present
+      const userEmail = sessionData.user.email;
+
       if (!roomId || !rooms || !totalAmount || !checkInDate || !checkOutDate) {
         alert("Missing required fields.");
-        console.error("Missing fields:", { roomId, rooms, totalAmount, checkInDate, checkOutDate });
+        console.error("Missing fields:", {
+          roomId,
+          rooms,
+          totalAmount,
+          checkInDate,
+          checkOutDate,
+        });
         return;
       }
-  
-      // Create the booking
+
       const response = await fetch("/api/bookings", {
         method: "POST",
         headers: {
@@ -74,21 +74,20 @@ const PaymentPage = () => {
           checkOutDate: new Date(checkOutDate),
         }),
       });
-  
+
       if (response.ok) {
         const data = await response.json();
         console.log("Booking created:", data);
-  
-        // Send confirmation email to the user using the updated API route
+
         await fetch("/api/sendConfirmationEmail", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            userEmail: userEmail, // Send the logged-in user's email
+            userEmail: userEmail,
             bookingDetails: {
-              roomType: roomId,  // Replace with actual room type if needed
+              roomType: roomId,
               roomsBooked: rooms,
               checkInDate: checkInDate,
               checkOutDate: checkOutDate,
@@ -96,7 +95,7 @@ const PaymentPage = () => {
             },
           }),
         });
-  
+
         setIsSuccess(true);
         setTimeout(() => {
           router.push("/myAccount");
@@ -104,14 +103,14 @@ const PaymentPage = () => {
       } else {
         const errorText = await response.text();
         let errorMessage = "An error occurred";
-  
+
         try {
           const errorData = JSON.parse(errorText);
           errorMessage = errorData.message || "Unknown error";
         } catch (e) {
           console.error("Failed to parse error response:", errorText);
         }
-  
+
         console.error("Booking failed:", errorMessage);
         alert(`Booking failed: ${errorMessage}`);
       }
@@ -120,8 +119,6 @@ const PaymentPage = () => {
       alert(`Booking failed: ${error.message}`);
     }
   };
-  
-  
 
   return (
     <div className="payment-container">
@@ -195,5 +192,11 @@ const PaymentPage = () => {
     </div>
   );
 };
+
+const PaymentPage = () => (
+  <Suspense fallback={<div>Loading payment page...</div>}>
+    <PaymentPageContent />
+  </Suspense>
+);
 
 export default PaymentPage;
