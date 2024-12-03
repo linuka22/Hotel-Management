@@ -4,6 +4,7 @@ import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import styles from './home.module.css';
 import Image from 'next/image';
+import Link from "next/link";
 
 
 
@@ -55,10 +56,14 @@ export default function Home() {
             <span className={styles.redText}>HOTEL</span>
           </h1>
           <div className={styles.buttonsContainer}>
+          <Link href="/gallery">
             <button className={styles.exploreButton}>EXPLORE HOTEL</button>
-            <button className={styles.bookButton}>
-              <span>📅 BOOK A ROOM NOW</span>
-            </button>
+          </Link>
+          <Link href="/reservation">
+          <button className={styles.bookButton}>
+            <span>📅 BOOK A ROOM NOW</span>
+          </button>
+        </Link>
           </div>
         </div>
         <div className={styles.textOverlay}>

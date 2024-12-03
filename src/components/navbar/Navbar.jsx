@@ -15,7 +15,7 @@ const links = [
   { title: "Reservations", path: "/reservation" },
   { title: "Gallery", path: "/gallery" },
   { title: "Contact Us", path: "/contact" },
-  { title: "Guest Reviews", path: "/reviews" },
+  { title: "Your Feedback", path: "/reviews" },
 ];
 
 const Navbar = () => {
