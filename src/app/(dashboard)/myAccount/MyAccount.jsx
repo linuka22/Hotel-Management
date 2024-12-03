@@ -3,29 +3,31 @@
 import { useState } from "react";
 import './myAccount.css';
 
-const MyAccount = ({ bookings, userName }) => {
+const MyAccount = ({ bookings, userName, userEmail }) => {
   const [bookingList, setBookingList] = useState(bookings);
 
   // Function to handle booking cancellation
   const cancelBooking = async (bookingId) => {
     try {
-      console.log('Canceling booking with ID:', bookingId);
-  
-      // Send DELETE request to cancel booking
-      const response = await fetch(`/api/cancelBooking?bookingId=${bookingId}`, {
+      console.log(`Canceling booking with ID: ${bookingId} for user: ${userEmail}`);
+
+      // Send DELETE request to cancel booking, passing user email
+      const response = await fetch(`/api/cancelBooking?bookingId=${bookingId}&userEmail=${userEmail}`, {
         method: 'DELETE',
       });
-  
+
       if (!response.ok) {
-        throw new Error('Failed to cancel booking');
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to cancel booking');
       }
-  
+
       // Update the local state to remove the canceled booking
       setBookingList((prev) => prev.filter((booking) => booking.id !== bookingId));
-      alert('Booking cancelled successfully');
+
+      alert('Booking cancelled successfully. A confirmation email has been sent to your registered email address.');
     } catch (error) {
-      console.error('Error canceling booking:', error);
-      alert('Failed to cancel booking');
+      console.error('Error canceling booking:', error.message);
+      alert(`Failed to cancel booking: ${error.message}`);
     }
   };
 
@@ -56,10 +58,7 @@ const MyAccount = ({ bookings, userName }) => {
                   <td className="p-4 cancel-btn">
                     <button
                       className="cancel-btn"
-                      onClick={() => {
-                        console.log('Cancel button clicked for booking ID:', booking.id);
-                        cancelBooking(booking.id);
-                      }}
+                      onClick={() => cancelBooking(booking.id)}
                     >
                       Cancel
                     </button>
